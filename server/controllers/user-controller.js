@@ -7,7 +7,6 @@ module.exports = {
   // get a single user by either their id or their username
   async getRecords() {
     const records = await Record.find();
-
     return records;
   },
   // async getSingleUser({ user = null, params }, res) {

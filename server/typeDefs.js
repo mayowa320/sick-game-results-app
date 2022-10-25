@@ -9,6 +9,7 @@ const typeDefs = gql`
     _id: String
     description: String!
     game: Game!
+    date: String
   }
 
   type Game {
