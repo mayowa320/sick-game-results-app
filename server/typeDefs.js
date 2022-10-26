@@ -5,6 +5,11 @@ const typeDefs = gql`
     records: [Record]
   }
 
+  type Mutation {
+    saveRecord(input: RecordInput): String
+    removeRecord(recordId: String): Boolean
+  }
+
   type Record {
     _id: String
     description: String!
@@ -12,7 +17,19 @@ const typeDefs = gql`
     date: String
   }
 
+  input RecordInput {
+    _id: String
+    description: String!
+    game: GameInput!
+    date: String
+  }
+
   type Game {
+    teams: [String!]
+    scores: [Int!]
+    location: String
+  }
+  input GameInput {
     teams: [String!]
     scores: [Int!]
     location: String

@@ -1,22 +1,8 @@
 import { gql } from "@apollo/client";
 
 export const SAVE_GAME = gql`
-  mutation Mutation($input: BookInput) {
-    saveBook(input: $input) {
-      _id
-      email
-      username
-      password
-      bookCount
-      savedBooks {
-        bookId
-        authors
-        description
-        title
-        image
-        link
-      }
-    }
+  mutation Mutation($input: RecordInput) {
+    saveRecord(input: $input)
   }
 `;
 export const REMOVE_GAME = gql`

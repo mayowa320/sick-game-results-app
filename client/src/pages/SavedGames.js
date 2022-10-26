@@ -14,10 +14,7 @@ import { REMOVE_GAME } from "../utils/mutations";
 import { useQuery, useMutation } from "@apollo/client";
 
 const SavedGames = () => {
-  const { data, loading } = useQuery(GET_RECORDS);
-  useEffect(() => {
-    console.log({ data });
-  }, [data]);
+  const { data, loading, refetch } = useQuery(GET_RECORDS);
 
   const [removeGame] = useMutation(REMOVE_GAME);
 
@@ -83,7 +80,7 @@ const SavedGames = () => {
               </Card>
             );
           })}
-          <AddCard />
+          <AddCard refetch={refetch} />
         </CardColumns>
       </Container>
     </>

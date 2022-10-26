@@ -9,6 +9,15 @@ module.exports = {
     const records = await Record.find();
     return records;
   },
+  async saveRecord(record) {
+    console.log(record);
+    try {
+      const res = await Record.create(record);
+      return res;
+    } catch (err) {
+      console.log(err);
+    }
+  },
   // async getSingleUser({ user = null, params }, res) {
   //   const foundUser = await User.findOne({
   //     $or: [{ _id: user ? user._id : params.id }, { username: params.username }],
