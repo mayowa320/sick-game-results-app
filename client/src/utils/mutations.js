@@ -6,21 +6,7 @@ export const SAVE_GAME = gql`
   }
 `;
 export const REMOVE_GAME = gql`
-  mutation Mutation($bookId: String) {
-    removeBook(bookId: $bookId) {
-      _id
-      email
-      username
-      password
-      bookCount
-      savedBooks {
-        bookId
-        authors
-        description
-        title
-        image
-        link
-      }
-    }
+  mutation Mutation($recordId: String) {
+    removeRecord(recordId: $recordId)
   }
 `;

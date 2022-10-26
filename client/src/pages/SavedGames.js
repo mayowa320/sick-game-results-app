@@ -16,22 +16,14 @@ import { useQuery, useMutation } from "@apollo/client";
 const SavedGames = () => {
   const { data, loading, refetch } = useQuery(GET_RECORDS);
 
-  const [removeGame] = useMutation(REMOVE_GAME);
+  const [removeRecord] = useMutation(REMOVE_GAME);
 
   // create function that accepts the book's mongo _id value as param and deletes the book from the database
-  const handleDeleteGame = async (bookId) => {
+  const handleDeleteGame = async (recordId) => {
     try {
-      // const response = await deleteBook(bookId, token);
-      const response = await removeGame(bookId);
+      const response = await removeRecord(recordId);
 
-      if (!response.ok) {
-        throw new Error("something went wrong!");
-      }
-
-      // const updatedUser = await response.json();
-      //setUserData(updatedUser);
-      // upon success, remove book's id from localStorage
-      // removeBookId(bookId);
+      refetch();
     } catch (err) {
       console.error(err);
     }

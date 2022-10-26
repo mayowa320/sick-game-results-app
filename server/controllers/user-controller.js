@@ -18,6 +18,14 @@ module.exports = {
       console.log(err);
     }
   },
+  async removeRecord(record_id) {
+    try {
+      const res = await Record.findOneAndDelete(record_id);
+      return res;
+    } catch (err) {
+      console.log(err);
+    }
+  },
   // async getSingleUser({ user = null, params }, res) {
   //   const foundUser = await User.findOne({
   //     $or: [{ _id: user ? user._id : params.id }, { username: params.username }],

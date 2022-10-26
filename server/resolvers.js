@@ -1,4 +1,8 @@
-const { getRecords, saveRecord } = require("./controllers/user-controller.js");
+const {
+  getRecords,
+  saveRecord,
+  removeRecord,
+} = require("./controllers/user-controller.js");
 
 const resolvers = {
   Query: {
@@ -17,11 +21,12 @@ const resolvers = {
       }
     },
     removeRecord: async (parent, record_id) => {
-      let indexOfBookToDelete = me.savedBooks.findIndex(
-        (book) => book.bookId === bookId
-      );
-      me.savedBooks.splice(indexOfBookToDelete, 1);
-      return me;
+      try {
+        let res = await removeRecord(record_id);
+        return !!res;
+      } catch (e) {
+        return e;
+      }
     },
   },
 };
