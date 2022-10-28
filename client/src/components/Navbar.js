@@ -16,7 +16,7 @@ const AppNavbar = () => {
               <Nav.Link as={Link} to="/">
                 Search For a Game
               </Nav.Link>
-              <Nav.Link as={Link} to="/saved">
+              <Nav.Link as={Link} to="/">
                 See My Games
               </Nav.Link>
             </Nav>
